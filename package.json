@@ -4,9 +4,14 @@
   "description": "A simple installments app",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest -c server/jest.config.js",
-    "test:watch": "NODE_ENV=test jest -c server/jest.config.js",
-    "dev": "npm server; npm client"
+    "test": "jest -c server/jest.config.js",
+    "test:unit": "cross-env NODE_ENV=test TEST_TYPE=unit npm run test",
+    "test:integration": "cross-env NODE_ENV=test TEST_TYPE=integration npm run test",
+    "test:all": "cross-env NODE_ENV=test npm run test",
+    "client:dev": "cross-env BABEL_ENV=dev babel server/src --out-dir server/build --watch",
+    "client:prod": "cross-env BABEL_ENV=production babel server/src --out-dir server/build --watch",
+    "server": "nodemon server/build/server",
+    "dev": "npm-run-all -p client:dev server"
   },
   "keywords": [
     "express",
@@ -18,17 +23,24 @@
     "@babel/runtime": "^7.6.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
     "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "babel-jest": "^24.9.0",
+    "cross-env": "^6.0.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "jest": "^24.9.0",
-    "nodemon": "^1.19.2"
+    "jest-each": "^24.9.0",
+    "nodemon": "^1.19.2",
+    "npm-run-all": "^4.1.5",
+    "supertest": "^4.0.2"
   }
 }
