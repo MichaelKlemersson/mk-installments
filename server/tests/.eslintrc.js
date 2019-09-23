@@ -11,6 +11,7 @@ module.exports = {
     "no-trailing-spaces": ["error", {
       "skipBlankLines": true,
       "ignoreComments": true
-    }]
+    }],
+    'comma-dangle': ['error', 'never']
   },
 };
