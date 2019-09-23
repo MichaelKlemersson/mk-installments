@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { getInstallments } from './installments';
+import splitPayment from './installments';
 
 const router = Router();
 
-router.get('installments', getInstallments);
+router.post('/installments', splitPayment);
 
-module.exports = router;
+export default router;
