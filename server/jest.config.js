@@ -1,4 +1,5 @@
 const testType = process.env.TEST_TYPE || 'all';
+const coverage = process.env.COVERAGE === 'true' || false;
 let testsPath = '';
 
 switch (testType) {
@@ -34,5 +35,13 @@ module.exports = {
   testMatch: [testsPath],
   transform: {
     '^.+\\.jsx?$': 'babel-jest'
-  }
+  },
+  collectCoverage: coverage,
+  coverageDirectory: '<rootDir>/server/coverage',
+  collectCoverageFrom: [
+    '<rootDir>/server/src/**/*.{js,jsx}',
+    '!<rootDir>/server/src/server.js',
+    '!**/node_modules/**',
+    '!**/vendor/**'
+  ]
 };

@@ -8,6 +8,7 @@
     "test:unit": "cross-env NODE_ENV=test TEST_TYPE=unit npm run test",
     "test:integration": "cross-env NODE_ENV=test TEST_TYPE=integration npm run test",
     "test:all": "cross-env NODE_ENV=test npm run test",
+    "test:all-coverage": "cross-env NODE_ENV=test COVERAGE=true npm run test",
     "client:dev": "cross-env BABEL_ENV=dev babel server/src --out-dir server/build --watch",
     "client:prod": "cross-env BABEL_ENV=production babel server/src --out-dir server/build --watch",
     "server": "nodemon server/build/server",

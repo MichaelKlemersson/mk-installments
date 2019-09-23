@@ -6,11 +6,6 @@ class SplitPaymentRequestValidator {
   }
 
   validate(request) {
-    if (request.body.length === 0) {
-      const missedParameters = JSON.stringify(this.requiredParameters);
-      throw new ValidationError(`Missing required parameters: ${missedParameters}`);
-    }
-
     let missedParameters = [];
     const requestContent = request.body;
 
