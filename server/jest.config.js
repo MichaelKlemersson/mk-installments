@@ -1,8 +1,23 @@
+const testType = process.env.TEST_TYPE || 'all';
+let testsPath = '';
+
+switch (testType) {
+  case 'unit':
+    testsPath = '**/server/tests/unit/**/*.spec.[jt]s?(x)';
+    break;
+  case 'integration':
+    testsPath = '**/server/tests/integration/**/*.spec.[jt]s?(x)';
+    break;
+  default:
+    testsPath = '**/server/tests/**/*.spec.[jt]s?(x)';
+    break;
+}
+
 module.exports = {
   verbose: true,
   rootDir: '../',
   globals: {
-    NODE_ENV: 'test'
+    NODE_ENV: process.env.NODE_ENV
   },
   modulePaths: ['node_modules', '<rootDir>/server'],
   moduleNameMapper: {
@@ -16,7 +31,7 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules'
   ],
-  testMatch: ['**/server/tests/**/*.spec.[jt]s?(x)'],
+  testMatch: [testsPath],
   transform: {
     '^.+\\.jsx?$': 'babel-jest'
   }
