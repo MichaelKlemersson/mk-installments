@@ -7,9 +7,9 @@ describe('SplitPaymentRequestTest', () => {
     [{ amount: 0 }, 422],
     [{ times: 0 }, 422],
     [{ }, 422],
-    [{ amount: -1, times: 1 }, 500],
-    [{ amount: 1000, times: -1 }, 500],
-    [{ amount: 1000, times: 6 }, 500]
+    [{ amount: -1, times: 1 }, 422],
+    [{ amount: 1000, times: -1 }, 422],
+    [{ amount: 1000, times: 6 }, 422]
   ]).test('it should fail on validate parameters', async (requestParams, expected) => {
     await request(app)
       .post('/api/v1/installments')
