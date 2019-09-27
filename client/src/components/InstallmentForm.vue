@@ -22,7 +22,7 @@
           />
         <small id="amount-field-validation" class="form-text text-danger"
           v-show="!isAmountFieldValid">
-          The amount field should be a number greather than 0.
+          The amount field should be a value between 10000 to 100000.
         </small>
       </div>
 
@@ -96,7 +96,8 @@ export default {
         return true;
       }
 
-      return parseInt(this.amount, 10) > 0;
+      const loan = parseInt(this.amount, 10);
+      return loan >= 10000 && loan <= 100000;
     },
     isTimesFieldValid() {
       if (this.times === null) {

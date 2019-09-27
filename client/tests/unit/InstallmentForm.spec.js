@@ -6,7 +6,7 @@ describe('InstallmentForm.vue', () => {
   test('should send request to split payment', () => {
     const component = shallowMount(InstallmentForm, {
       data() {
-        return { amount: 10, times: 1 };
+        return { amount: 10000, times: 1 };
       }
     });
     const spy = jest.spyOn(InstallmentService, 'getSplittedPayment');

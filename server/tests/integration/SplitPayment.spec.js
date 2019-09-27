@@ -20,10 +20,10 @@ describe('SplitPaymentRequestTest', () => {
 
   test('it should split a payment', async () => {
     const requestParams = {
-      amount: 1000.00,
+      amount: 10000,
       times: 2
     };
-    const expectedAmount = 500;
+    const expectedAmount = 5000;
     const response = await request(app)
       .post('/api/v1/installments')
       .set('Content-type', 'application/json')
