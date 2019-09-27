@@ -9,7 +9,8 @@ describe('SplitPaymentServiceTest', () => {
 
   test('it should not allow split with negative amount', () => {
     const payments = [
-      { value: -1, times: 1 }
+      { value: -1, times: 1 },
+      { value: 0, times: 1 }
     ];
 
     payments.forEach((payment) => {

@@ -1,3 +1,5 @@
+import ValidationError from "../error/ValidatorError";
+
 /**
  * Class SplitPaymentService
  */
@@ -12,12 +14,12 @@ class SplitPaymentService {
    * @param int times 
    */
   split(amount, times) {
-    if (amount < 0) {
-      throw new Error('Can not split a negative amount');
+    if (amount < 1) {
+      throw new ValidationError('Amount should be greather than');
     }
 
     if (times < this.minSplitTimes || times > this.maxSplitTimes) {
-      throw new Error(`Can not split payment less than ${this.minSplitTimes} or more than ${this.maxSplitTimes} times`);
+      throw new ValidationError(`Can not split payment less than ${this.minSplitTimes} or more than ${this.maxSplitTimes} times`);
     }
 
     const finalAmount = amount / times;
