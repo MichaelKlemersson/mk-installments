@@ -11,12 +11,13 @@
     "test:all-coverage": "cross-env NODE_ENV=test COVERAGE=true npm run test",
     "build:dev": "cross-env BABEL_ENV=dev babel server/src --out-dir server/build --watch",
     "build:server:prod": "cross-env BABEL_ENV=prod babel server/src --out-dir server/build",
-    "build:client:prod": "cd client && npm i && npm run build",
+    "build:client:prod": "cd client && npm run build",
     "serve:dev": "nodemon server/build/server",
     "serve:prod": "node server/build/server",
-    "build": "cross-env NODE_ENV=production npm-run-all -p build:server:prod build:client:prod",
-    "dev": "cross-env NODE_ENV=dev npm-run-all -p build:dev serve:dev",
-    "start": "cross-env NODE_ENV=production npm run serve:prod"
+    "build": "cross-env NODE_ENV=production npm-run-all build:server:prod build:client:prod",
+    "dev": "cross-env NODE_ENV=dev npm-run-all build:dev serve:dev",
+    "start": "cross-env NODE_ENV=production npm run serve:prod",
+    "postinstall": "cd ./client && npm install"
   },
   "keywords": [
     "express",

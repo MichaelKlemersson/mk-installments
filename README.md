@@ -26,4 +26,30 @@ A VueJS SPA application
 
 ### Requirements
 
-- NodeJS: 8+
+- NodeJS: 10+
+
+### Running
+```bash
+npm install # the postinstall script hook will take care of installing frontend dependencies
+
+npm run build # build the app for production
+
+npm run start
+```
+
+You can see the application running at [http://localhost:5000](http://localhost:5000)
+
+
+### Tests
+You can run the tests by execution test scripts from client and root folder
+
+```bash
+# root folder
+npm run test:all # npm run test:all-coverage|unit|integration
+
+# client folder
+cd client
+
+npm run test:unit
+npm run test:e2e
+```
