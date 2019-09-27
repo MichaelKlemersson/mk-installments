@@ -11,7 +11,7 @@
     "test:all-coverage": "cross-env NODE_ENV=test COVERAGE=true npm run test",
     "build:dev": "cross-env BABEL_ENV=dev babel server/src --out-dir server/build --watch",
     "build:server:prod": "cross-env BABEL_ENV=prod babel server/src --out-dir server/build",
-    "build:client:prod": "cd client && npm run build",
+    "build:client:prod": "cd client && npm i && npm run build",
     "serve:dev": "nodemon server/build/server",
     "serve:prod": "node server/build/server",
     "build": "cross-env NODE_ENV=production npm-run-all -p build:server:prod build:client:prod",
