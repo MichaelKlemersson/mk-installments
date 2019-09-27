@@ -17,7 +17,7 @@
     "build": "cross-env NODE_ENV=production npm-run-all -p build:server:prod build:client:prod",
     "dev": "cross-env NODE_ENV=dev npm-run-all -p build:dev serve:dev",
     "start": "cross-env NODE_ENV=production npm run serve:prod",
-    "postinstall": "npm install --prefix . && npm install --prefix client"
+    "postinstall": "npm install --prefix client"
   },
   "keywords": [
     "express",
