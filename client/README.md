@@ -28,6 +28,7 @@ npm run lint
 ```
 
 ### Run your end-to-end tests
+> make sure that you have started the server before by running npm run dev on the root folder
 ```
 npm run test:e2e
 ```
